@@ -8,13 +8,14 @@ authurl="/credentials/basic"
 output="$SAMPLENAME_OUT_FILENAME"
 # User-defined Processes
 process_graph_id = "my_evi"
-pg_filename="EODC_PG.json" # file with PG for process_graph_id
+pg_filename="SAMPLENAME_PG.json" # file with PG for process_graph_id
 # Data Processing / Batch Jobs
-job_sync_filename="EODC_job_sync.json"
-job_filename="EODC_job.json"
-job_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a job
+job_sync_filename="SAMPLENAME_job_sync.json"
+job_filename="SAMPLENAME_job.json"
 job_id_precomputed=""  # the id of a job !pre-processes! job at the back-end
 
+job_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a job
+# Secondary Services
 service_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a service
 
 [endpoints]
