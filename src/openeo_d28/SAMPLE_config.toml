@@ -1,0 +1,26 @@
+# Backend url and credentials
+url = "https://sample-backend.org" # it's possible to use localhsot to test locally: "http://localhost:PORT"
+backendversion = "1.0.0-rc.2" # one of the versions specified on url/.well-known/openeo
+openapi = "https://gist.githubusercontent.com/bgoesswe/8459bd57202e05a2951c130a2168ce3a/raw/8a43112d027df58f1e8fd3c069d975cee5087fd8/openeoapi-1.0.0rc2.json"
+username = "$USERNAME" # shell env var
+password = "$PASSWORD" # shell env var
+
+# Output filename
+output = "SAMPLE_output.json"
+
+[variables]
+  # These variables are used in openeo_v1.0_endpoints.toml
+  # Leave their names unchanged, modify their values
+
+  # User-defined Processes
+  process_graph_id = "my_evi" # name of your user defined process
+  pg_filename="SAMPLE_PG.json" # file with PG for process_graph_id
+
+  # Data Processing / Batch Jobs
+  job_sync_filename="SAMPLE_job_sync.json"
+  job_filename="SAMPLE_job.json"
+  job_id_precomputed=""  # the id of a !pre-processed! job at the back-end
+  job_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a job
+
+  # Secondary Services
+  service_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a service
