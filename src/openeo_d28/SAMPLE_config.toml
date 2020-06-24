@@ -11,6 +11,8 @@ output = "SAMPLE_output.json"
 [variables]
   # These variables are used in openeo_v1.0_endpoints.toml
   # Leave their names unchanged, modify their values
+  
+  # NOTE: place all files in the "body" folder
 
   # User-defined Processes
   process_graph_id = "my_evi" # name of your user defined process

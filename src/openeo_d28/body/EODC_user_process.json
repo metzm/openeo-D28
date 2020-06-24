@@ -1,0 +1,74 @@
+{
+  "process_graph": {
+    "evi": {
+      "process_id": "reduce_dimension",
+      "description": "Compute the EVI. Formula: 2.5 * (NIR - RED) / (1 + NIR + 6*RED + -7.5*BLUE)",
+      "arguments": {
+        "data": {"from_argument": "dc"},
+        "dimension": "spectral",
+        "reducer": {
+          "process_graph": {
+            "nir": {
+              "process_id": "array_element",
+              "arguments": {
+                "data": {"from_argument": "data"},
+                "index": 0
+              }
+            },
+            "red": {
+              "process_id": "array_element",
+              "arguments": {
+                "data": {"from_argument": "data"},
+                "index": 1
+              }
+            },
+            "blue": {
+              "process_id": "array_element",
+              "arguments": {
+                "data": {"from_argument": "data"},
+                "index": 2
+              }
+            },
+            "sub": {
+              "process_id": "subtract",
+              "arguments": {
+                "data": [{"from_argument": "nir"}, {"from_argument": "red"}]
+              }
+            },
+            "p1": {
+              "process_id": "product",
+              "arguments": {
+                "data": [6, {"from_argument": "red"}]
+              }
+            },
+            "p2": {
+              "process_id": "product",
+              "arguments": {
+                "data": [-7.5, {"from_argument": "blue"}]
+              }
+            },
+            "sum": {
+              "process_id": "sum",
+              "arguments": {
+                "data": [10000, {"from_argument": "nir"}, {"from_argument": "p1"}, {"from_argument": "p2"}]
+              }
+            },
+            "div": {
+              "process_id": "divide",
+              "arguments": {
+                "data": [{"from_argument": "sub"}, {"from_argument": "sum"}]
+              }
+            },
+            "p3": {
+              "process_id": "product",
+              "arguments": {
+                "data": [2.5, {"from_argument": "div"}]
+              },
+              "result": true
+            }
+          }
+        }
+      }
+    }
+  }
+}
