@@ -101,8 +101,8 @@
   group = "User-Defined Processes"
   
   
-  Data Processing
-  https://openeo.org/documentation/1.0/developers/api/reference.html#tag/Data-Processing
+  # Data Processing
+  #https://openeo.org/documentation/1.0/developers/api/reference.html#tag/Data-Processing
   [endpoints.result]
   url = "/result"
   request_type = "POST"
