@@ -49,4 +49,3 @@ MANIFEST
 .venv*/
 
 credentials
-src/openeo_d28/*output.json*
