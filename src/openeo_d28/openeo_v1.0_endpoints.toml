@@ -84,22 +84,25 @@
   request_type = "PUT"
   body = "body/{pg_filename}"
   group = "User-Defined Processes"
-  
+  order = 1
+
   [endpoints.process_graphs]
   url = "/process_graphs"
   request_type = "GET"
   group = "User-Defined Processes"
-  
+  order = 2
+
   [endpoints.process_graphs_pgid_get]
   url = "/process_graphs/{process_graph_id}"
   request_type = "GET"
   group = "User-Defined Processes"
-  
+  order = 2
+
   [endpoints.process_graphs_pgid_delete]
   url = "/process_graphs/{process_graph_id}"
   request_type = "DELETE"
   group = "User-Defined Processes"
-  
+
   
   # Data Processing
   #https://openeo.org/documentation/1.0/developers/api/reference.html#tag/Data-Processing
@@ -107,59 +110,74 @@
   url = "/result"
   request_type = "POST"
   body = "body/{job_sync_filename}"
-  group = "Data Processing"
-  
+  group = "Data Processing
+
   [endpoints.jobs_post]
   url = "/jobs"
   request_type = "POST"
   body = "body/{job_filename}"
   group = "Data Processing"
-  
+  order = 1
+
   [endpoints.jobs]
   url = "/jobs"
   request_type = "GET"
   group = "Data Processing"
-  
+  order = 2
+
   [endpoints.jobs_job_id_patch]
   url = "/jobs/{job_id}"  # -> {job_id} should be retrieved dynamically
   request_type = "PATCH"
   body = "body/{job_filename}"
   group = "Data Processing"
-  
+  order = 2
+
   [endpoints.jobs_job_id]
   url = "/jobs/{job_id}"
   request_type = "GET"
   group = "Data Processing"
-  
-  [endpoints.jobs_job_id_delete]
-  url = "/jobs/{job_id}"
-  request_type = "DELETE"
-  group = "Data Processing"
-  
+  order = 2
+
   [endpoints.jobs_job_id_estimate]
   url = "/jobs/{job_id}/estimate"
   request_type = "GET"
   group = "Data Processing"
-  
+  order = 2
+
   [endpoints.jobs_job_id_logs]
   url = "/jobs/{job_id}/logs"
   request_type = "GET"
   group = "Data Processing"
-  
+
   [endpoints.jobs_job_id_results]
   url = "/jobs/{job_id_precomputed}/results"
   request_type = "GET"
   group = "Data Processing"
-  
+
   [endpoints.jobs_job_id_results_post]
   url = "/jobs/{job_id}/results"
   request_type = "POST"
   group = "Data Processing"
-  
+  order = 3
+
   [endpoints.jobs_job_id_results_delete]
   url = "/jobs/{job_id}/results"
   request_type = "DELETE"
   group = "Data Processing"
+  order = 4
+
+  [endpoints.jobs_post_1]
+  url = "/jobs"
+  request_type = "POST"
+  body = "{job_filename}"
+  group = "Data Processing"
+  order = 5
+
+  [endpoints.jobs_job_id_delete]
+  url = "/jobs/{job_id}"
+  request_type = "DELETE"
+  group = "Data Processing"
+  order = 6
   
   
   # Secondary Services
@@ -201,18 +219,22 @@
   url = "/files"
   request_type = "GET"
   group = "File Storage"
-  
+  order = 2
+
   [endpoints.files_put]
   url = "/files/{filepath}"
   request_type = "PUT"
   group = "File Storage"
+  order = 1
   
   [endpoints.files_filepath]
   url = "/files/{filepath}"
   request_type = "GET"
   group = "File Storage"
-  
+  order = 2
+
   [endpoints.files_delete]
   url = "/files/{filepath}"
   request_type = "DELETE"
   group = "File Storage"
+  order = 3
