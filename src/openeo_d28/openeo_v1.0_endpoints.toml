@@ -110,7 +110,7 @@
   url = "/result"
   request_type = "POST"
   body = "body/{job_sync_filename}"
-  group = "Data Processing
+  group = "Data Processing"
 
   [endpoints.jobs_post]
   url = "/jobs"
