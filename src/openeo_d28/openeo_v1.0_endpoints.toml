@@ -148,6 +148,7 @@
   url = "/jobs/{job_id}/logs"
   request_type = "GET"
   group = "Data Processing"
+  order = 2
 
   [endpoints.jobs_job_id_results]
   url = "/jobs/{job_id_precomputed}/results"
@@ -186,32 +187,39 @@
   url = "/services"
   request_type = "GET"
   group = "Secondary Services"
-  
+  order = 2
+
   [endpoints.services_post]
   url = "/services"
   request_type = "POST"
   group = "Secondary Services"
-  
+  body = "body/{service_filename}"
+  order = 1
+
   [endpoints.services_service_id_patch]
   url = "/services/{service_id}"
   request_type = "PATCH"
   group = "Secondary Services"
-  
+  body = "body/{service_filename}"
+  order = 4
+
   [endpoints.services_service_id_get]
   url = "/services/{service_id}"
   request_type = "GET"
   group = "Secondary Services"
-  
+  order = 3
+
   [endpoints.services_service_id_delete]
   url = "/services/{service_id}"
   request_type = "DELETE"
   group = "Secondary Services"
-  
+  order = 6
+
   [endpoints.services_service_id_logs]
   url = "/services/{service_id}/logs"
   request_type = "GET"
   group = "Secondary Services"
-  
+  order = 5
   
   # File Storage
   # https://openeo.org/documentation/1.0/developers/api/reference.html#tag/File-Storage
@@ -225,6 +233,7 @@
   url = "/files/{filepath}"
   request_type = "PUT"
   group = "File Storage"
+  body = "body/{file_filename}"
   order = 1
   
   [endpoints.files_filepath]
