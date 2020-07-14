@@ -166,18 +166,11 @@
   group = "Data Processing"
   order = 4
 
-  [endpoints.jobs_post_1]
-  url = "/jobs"
-  request_type = "POST"
-  body = "{job_filename}"
-  group = "Data Processing"
-  order = 5
-
   [endpoints.jobs_job_id_delete]
   url = "/jobs/{job_id}"
   request_type = "DELETE"
   group = "Data Processing"
-  order = 6
+  order = 5
   
   
   # Secondary Services
