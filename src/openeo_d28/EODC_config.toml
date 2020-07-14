@@ -21,3 +21,8 @@ output = "EODC_output.json"
 
   # Secondary Services
   service_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a service
+  service_filename="SAMPLE_job.json"
+
+  # Files
+  filepath = "samplepath"
+  file_filename="SAMPLE_job.json"
