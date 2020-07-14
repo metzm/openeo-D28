@@ -1,0 +1,33 @@
+# Backend url and credentials
+#url = "https://openeo.vito.be"
+#url = "http://openeo.vgt.vito.be"
+url = "http://openeo-dev.vgt.vito.be"
+#url = "http://localhost:8080/"
+backendversion = "1.0.0"
+openapi = "https://raw.githubusercontent.com/Open-EO/openeo-api/1.0.0-rc.2/openapi.yaml"
+username = "$USERNAME"
+password = "$PASSWORD"
+
+# Output filename
+output = "VITO_output.json"
+
+[variables]
+  # These variables are used in openeo_v1.0_endpoints.toml
+  # Leave their names unchanged, modify their values
+
+  collection_id="CGS_SENTINEL2_RADIOMETRY_V102_001"
+  
+  # NOTE: place all files in the "body" folder
+
+  # User-defined Processes
+  process_graph_id = "my_evi" # name of your user defined process
+  pg_filename="EODC_user_process.json" # file with PG for process_graph_id
+
+  # Data Processing / Batch Jobs
+  job_sync_filename="VITO_job.json"
+  job_filename="VITO_job.json"
+  job_id_precomputed=""  # the id of a !pre-processed! job at the back-end
+  job_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a job
+
+  # Secondary Services
+  service_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a service
