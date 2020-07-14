@@ -26,7 +26,7 @@ output = "VITO_output.json"
   # Data Processing / Batch Jobs
   job_sync_filename="VITO_job.json"
   job_filename="VITO_job.json"
-  job_id_precomputed=""  # the id of a !pre-processed! job at the back-end
+  job_id_precomputed="e1a61292-413c-4ce1-b6a1-f8d61359962f"  # the id of a !pre-processed! job at the back-end
   job_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a job
 
   # Secondary Services
