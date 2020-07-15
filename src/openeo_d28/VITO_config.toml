@@ -31,3 +31,4 @@ output = "VITO_output.json"
 
   # Secondary Services
   service_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a service
+  service_filename="VITO_service.json"

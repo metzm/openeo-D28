@@ -1,0 +1,126 @@
+{
+  "title": "WMTS EVI service",
+  "type": "WMTS",
+  "configuration": {
+    "version": "1.0.0"
+  },
+  "parmeters": [],
+  "process": {
+    "process_graph": {
+      "dc": {
+        "process_id": "load_collection",
+        "description": "Loading the data; The order of the specified bands is important for the following reduce operation.",
+        "arguments": {
+          "id": "CGS_SENTINEL2_RADIOMETRY_V102_001",
+          "spatial_extent": {
+            "west": 3,
+            "south": 50,
+            "east": 6,
+            "north": 51
+          },
+          "temporal_extent": ["2017-01-01", "2020-12-31"],
+          "bands": ["nir", "red", "blue"]
+        }
+      },
+      "evi": {
+        "process_id": "reduce_dimension",
+        "description": "Compute the EVI. Formula: 2.5 * (NIR - RED) / (1 + NIR + 6*RED + -7.5*BLUE)",
+        "arguments": {
+          "data": {
+            "from_node": "dc"
+          },
+          "dimension": "bands",
+          "reducer": {
+            "process_graph": {
+              "nir": {
+                "process_id": "array_element",
+                "arguments": {
+                  "data": {
+                    "from_parameter": "data"
+                  },
+                  "index": 0
+                }
+              },
+              "red": {
+                "process_id": "array_element",
+                "arguments": {
+                  "data": {
+                    "from_parameter": "data"
+                  },
+                  "index": 1
+                }
+              },
+              "blue": {
+                "process_id": "array_element",
+                "arguments": {
+                  "data": {
+                    "from_parameter": "data"
+                  },
+                  "index": 2
+                }
+              },
+              "sub": {
+                "process_id": "subtract",
+                "arguments": {
+                  "data": [{
+                    "from_node": "nir"
+                  }, {
+                    "from_node": "red"
+                  }]
+                }
+              },
+              "p1": {
+                "process_id": "product",
+                "arguments": {
+                  "data": [6, {
+                    "from_node": "red"
+                  }]
+                }
+              },
+              "p2": {
+                "process_id": "product",
+                "arguments": {
+                  "data": [-7.5, {
+                    "from_node": "blue"
+                  }]
+                }
+              },
+              "sum": {
+                "process_id": "sum",
+                "arguments": {
+                  "data": [10000, {
+                    "from_node": "nir"
+                  }, {
+                    "from_node": "p1"
+                  }, {
+                    "from_node": "p2"
+                  }]
+                }
+              },
+              "div": {
+                "process_id": "divide",
+                "arguments": {
+                  "data": [{
+                    "from_node": "sub"
+                  }, {
+                    "from_node": "sum"
+                  }]
+                }
+              },
+              "p3": {
+                "process_id": "product",
+                "arguments": {
+                  "data": [2.5, {
+                    "from_node": "div"
+                  }]
+                },
+                "result": true
+              }
+            }
+          }
+        },
+        "result": true
+      }
+    }
+  }
+}
