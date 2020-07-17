@@ -1,10 +1,15 @@
 # Backend url and credentials
-#url = "https://openeo.vito.be"
-#url = "http://openeo.vgt.vito.be"
+
+# url = "https://openeo.vito.be"
+# url = "http://openeo.vgt.vito.be"
 url = "http://openeo-dev.vgt.vito.be"
-#url = "http://localhost:8080/"
+# url = "http://localhost:8080/"
+
 backendversion = "1.0.0"
-openapi = "https://raw.githubusercontent.com/Open-EO/openeo-api/1.0.0-rc.2/openapi.yaml"
+
+# openapi = "https://raw.githubusercontent.com/Open-EO/openeo-api/1.0.0-rc.2/openapi.yaml"
+openapi = "https://raw.githubusercontent.com/Open-EO/openeo-api/draft/openapi.yaml"
+
 username = "$USERNAME"
 password = "$PASSWORD"
 
