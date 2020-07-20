@@ -1,4 +1,10 @@
 {
+  "title": "WMTS EVI service",
+  "type": "WMTS",
+  "configuration": {
+    "version": "1.0.0"
+  },
+  "parmeters": [],
   "process": {
     "process_graph": {
       "dc": {
@@ -7,12 +13,12 @@
         "arguments": {
           "id": "CGS_SENTINEL2_RADIOMETRY_V102_001",
           "spatial_extent": {
-            "west": 5.071,
-            "south": 51.21,
-            "east": 5.1028,
-            "north": 51.23
+            "west": 3,
+            "south": 50,
+            "east": 6,
+            "north": 51
           },
-          "temporal_extent": ["2018-06-04", "2018-06-23"],
+          "temporal_extent": ["2017-01-01", "2020-12-31"],
           "bands": ["nir", "red", "blue"]
         }
       },
@@ -112,38 +118,6 @@
               }
             }
           }
-        }
-      },
-      "mintime": {
-        "process_id": "reduce_dimension",
-        "description": "Compute a minimum time composite by reducing the temporal dimension",
-        "arguments": {
-          "data": {
-            "from_node": "evi"
-          },
-          "dimension": "t",
-          "reducer": {
-            "process_graph": {
-              "min": {
-                "process_id": "min",
-                "arguments": {
-                  "data": {
-                    "from_parameter": "data"
-                  }
-                },
-                "result": true
-              }
-            }
-          }
-        }
-      },
-      "save": {
-        "process_id": "save_result",
-        "arguments": {
-          "data": {
-            "from_node": "mintime"
-          },
-          "format": "Gtiff"
         },
         "result": true
       }
