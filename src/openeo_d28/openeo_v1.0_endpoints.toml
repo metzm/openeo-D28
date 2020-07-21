@@ -111,6 +111,7 @@
   request_type = "POST"
   body = "body/{job_sync_filename}"
   group = "Data Processing"
+  order = 1
 
   [endpoints.jobs_post]
   url = "/jobs"
@@ -154,6 +155,7 @@
   url = "/jobs/{job_id_precomputed}/results"
   request_type = "GET"
   group = "Data Processing"
+  order = 4
 
   [endpoints.jobs_job_id_results_post]
   url = "/jobs/{job_id}/results"
