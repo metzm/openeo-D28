@@ -195,7 +195,7 @@
   url = "/services/{service_id}"
   request_type = "PATCH"
   group = "Secondary Services"
-  body = "body/{service_filename}"
+  body = "body/{service_filename_patch}"
   order = 4
 
   [endpoints.services_service_id_get]

@@ -28,7 +28,8 @@ output = "SAMPLE_output.json"
   job_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a job
 
   # Secondary Services
-  service_filename="servicename"
+  service_filename="service_post.json"
+  service_filename_patch="service_patch.json"
   service_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a service
 
   # Files
