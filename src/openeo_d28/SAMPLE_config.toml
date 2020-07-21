@@ -1,7 +1,7 @@
 # Backend url and credentials
 url = "https://sample-backend.org" # it's possible to use localhost to test locally: "http://localhost:PORT"
 backendversion = "1.0.0-rc.2" # one of the versions specified on url/.well-known/openeo
-openapi = "https://gist.githubusercontent.com/bgoesswe/01111a3da271ba13cf70480e96574c9d/raw/cd6d87bc07684543ff9d549fa8d4039991784b2f/openeoapi_1_0_0rc2_2.json"
+openapi = "https://raw.githubusercontent.com/Open-EO/openeo-api/1.0.0/openapi.yaml"
 username = "$USERNAME" # shell env var
 password = "$PASSWORD" # shell env var
 
