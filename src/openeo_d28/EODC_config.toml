@@ -9,20 +9,28 @@ password = "$PASSWORD"
 output = "EODC_output.json"
 
 [variables]
+  # These variables are used in openeo_v1.0_endpoints.toml
+  # Leave their names unchanged, modify their values
+
+  # NOTE: place all files in the "body" folder
+
+  # EO Data Discovery
+  collection_id = "s2a_prd_msil1c" # name of your collection
+
   # User-defined Processes
   process_graph_id = "my_evi"
   pg_filename="EODC_user_process.json" # file with PG for process_graph_id
 
   # Data Processing / Batch Jobs
-  job_sync_filename="EODC_job_sync.json"
+  job_sync_filename="EODC_job.json"
   job_filename="EODC_job.json"
-  job_id_precomputed=""  # the id of a job !pre-processes! job at the back-end
+  job_id_precomputed="jb-7f1e8da4-b78a-4368-a770-2676ac2a5e95"  # the id of a !pre-processes! job at the back-end
   job_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a job
 
   # Secondary Services
+  service_filename=""
   service_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a service
-  service_filename="SAMPLE_job.json"
 
   # Files
-  filepath = "samplepath"
-  file_filename="SAMPLE_job.json"
+  file_filename="file_to_upload.txt" # file in this repo located in the /body folder
+  filepath = "my_uploaded_file.txt" # relative filepath where to store this at the back-end
