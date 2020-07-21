@@ -1,10 +1,14 @@
 # Backend url and credentials
-#url = "https://openeo.vito.be"
-#url = "http://openeo.vgt.vito.be"
+
+# url = "https://openeo.vito.be"
+# url = "http://openeo.vgt.vito.be"
 url = "http://openeo-dev.vgt.vito.be"
-#url = "http://localhost:8080/"
+# url = "http://localhost:8080/"
+
 backendversion = "1.0.0"
-openapi = "https://raw.githubusercontent.com/Open-EO/openeo-api/1.0.0-rc.2/openapi.yaml"
+
+openapi = "https://raw.githubusercontent.com/Open-EO/openeo-api/1.0.0/openapi.yaml"
+
 username = "$USERNAME"
 password = "$PASSWORD"
 
@@ -26,8 +30,9 @@ output = "VITO_output.json"
   # Data Processing / Batch Jobs
   job_sync_filename="VITO_job.json"
   job_filename="VITO_job.json"
-  job_id_precomputed=""  # the id of a !pre-processed! job at the back-end
+  job_id_precomputed="e1a61292-413c-4ce1-b6a1-f8d61359962f"  # the id of a !pre-processed! job at the back-end
   job_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a job
 
   # Secondary Services
   service_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a service
+  service_filename="VITO_service.json"

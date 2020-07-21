@@ -50,5 +50,6 @@ MANIFEST
 
 credentials
 
-*_output.json
+*_output*.json
+*_output*.html
 
