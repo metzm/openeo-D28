@@ -1,0 +1,35 @@
+# Backend url and credentials
+url = "https://e3oind87n9.execute-api.eu-central-1.amazonaws.com/production/"
+backendversion = "1.0.0" # one of the versions specified on url/.well-known/openeo
+openapi = "https://raw.githubusercontent.com/Open-EO/openeo-api/master/openapi.yaml"
+
+# Output filename
+output = "SENTINELHUB_output.json"
+
+[variables]
+  # These variables are used in openeo_v1.0_endpoints.toml
+  # Leave their names unchanged, modify their values
+  
+  # NOTE: place all files in the "body" folder
+
+  # EO Data Discovery
+  collection_id = "S2L1C" # name of your collection
+
+  # User-defined Processes
+  process_graph_id = "my_ndvi" # name of your user defined process
+  pg_filename="SENTINELHUB_pg.json" # file with PG for process_graph_id
+
+  # Data Processing / Batch Jobs
+  job_sync_filename="SENTINELHUB_job.json"
+  job_filename="SENTINELHUB_job.json"
+  job_id_precomputed=""  # the id of a !pre-processed! job at the back-end
+  job_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a job
+
+  # Secondary Services
+  service_filename="SENTINELHUB_service_job.json"
+  service_filename_patch="SENTINELHUB_service_patch.json"
+  service_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a service
+
+  # Files
+  filepath = ""
+  file_filename=""
