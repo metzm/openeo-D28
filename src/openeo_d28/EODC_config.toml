@@ -1,6 +1,6 @@
 # Backend url and credentials
-url = "$BACKEND_URL"
-backendversion = "1.0.0-rc.2"
+url = "https://openeo.eodc.eu"
+backendversion = "1.0.0"
 openapi = "https://raw.githubusercontent.com/Open-EO/openeo-api/1.0.0/openapi.yaml"
 username = "$USERNAME"
 password = "$PASSWORD"
@@ -24,7 +24,7 @@ output = "EODC_output.json"
   # Data Processing / Batch Jobs
   job_sync_filename="EODC_job.json"
   job_filename="EODC_job.json"
-  job_id_precomputed="jb-7f1e8da4-b78a-4368-a770-2676ac2a5e95"  # the id of a !pre-processes! job at the back-end
+  job_id_precomputed="jb-011b2d52-a591-4547-b464-9818401ebf7b"  # the id of a !pre-processes! job at the back-end
   job_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a job
 
   # Secondary Services
