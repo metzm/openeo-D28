@@ -1,0 +1,37 @@
+# Backend url and credentials
+url = "https://earthengine.openeo.org"
+backendversion = "1.0.0"
+openapi = "https://raw.githubusercontent.com/Open-EO/openeo-api/1.0.0/openapi.yaml"
+username = "group11"
+password = "test123"
+
+# Output filename
+output = "GEE_output.json"
+
+[variables]
+  # These variables are used in openeo_v1.0_endpoints.toml
+  # Leave their names unchanged, modify their values
+
+  # NOTE: place all files in the "body" folder
+
+  # EO Data Discovery
+  collection_id = "FIRMS" # name of your collection
+
+  # User-defined Processes
+  process_graph_id = "my_evi"
+  pg_filename="GEE_user_process.json" # file with PG for process_graph_id
+
+  # Data Processing / Batch Jobs
+  job_sync_filename="GEE_job.json"
+  job_filename="GEE_job.json"
+  job_id_precomputed="kpS15PnnEfAutrLg"  # the id of a !pre-processes! job at the back-end
+  job_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a job
+
+  # Secondary Services
+  service_filename="GEE_service_job.json"
+  service_filename_patch="GEE_service_patch.json"
+  service_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a service
+
+  # Files
+  file_filename="file_to_upload.txt" # file in this repo located in the /body folder
+  filepath = "my_uploaded_file.txt" # relative filepath where to store this at the back-end
