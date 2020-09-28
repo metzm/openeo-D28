@@ -1,0 +1,245 @@
+[endpoints]
+  # Capabilites 
+  # https://openeo.org/documentation/1.0/developers/api/reference.html#tag/Capabilities
+  [endpoints.root]
+  url = "/"
+  request_type = "GET"
+  group = "Capabilities"
+  
+  [endpoints.well_known_openeo]
+  url = "/.well-known/openeo"
+  request_type = "GET"
+  group = "Capabilities"
+  
+  [endpoints.file_formats]
+  url = "/file_formats"
+  request_type = "GET"
+  group = "Capabilities"
+  
+  [endpoints.conformance]
+  url = "/conformance"
+  request_type = "GET"
+  group = "Capabilities"
+  
+  [endpoints.udf_runtimes]
+  url = "/udf_runtimes"
+  request_type = "GET"
+  group = "Capabilities"
+  
+  [endpoints.service_types]
+  url = "/service_types"
+  request_type = "GET"
+  group = "Capabilities"
+
+
+  # Account Management
+  # https://openeo.org/documentation/1.0/developers/api/reference.html#tag/Account-Management
+  [endpoints.credentials_oidc]
+  url = "/credentials/oidc"
+  request_type = "GET"
+  group = "Account Management"
+  
+  [endpoints.credentials_basic]
+  url = "/credentials/basic"
+  request_type = "GET"
+  group = "Account Management"
+  
+  [endpoints.me]
+  url = "/me"
+  request_type = "GET"
+  group = "Account Management"
+  
+  
+  # EO Data Discovery
+  # https://openeo.org/documentation/1.0/developers/api/reference.html#tag/EO-Data-Discovery
+  [endpoints.collections]
+  url = "/collections"
+  request_type = "GET"
+  group = "EO Data Discovery"
+  
+  [endpoints.collection]
+  url = "/collections/{collection_id}"  # -> {collection_id}
+  request_type = "GET"
+  group = "EO Data Discovery"
+  
+  
+  # Process Discovery
+  # https://openeo.org/documentation/1.0/developers/api/reference.html#tag/Process-Discovery
+  [endpoints.processes]
+  url = "/processes"
+  request_type = "GET"
+  group = "Process Discovery"
+  
+  
+  # User-Defined Processes
+  # https://openeo.org/documentation/1.0/developers/api/reference.html#tag/User-Defined-Processes
+  [endpoints.validation]
+  url = "/validation"
+  request_type = "POST"
+  body = "body/{pg_filename}"
+  group = "User-Defined Processes"
+  
+  [endpoints.process_graphs_pgid_put]
+  url = "/process_graphs/{process_graph_id}"
+  request_type = "PUT"
+  body = "body/{pg_filename}"
+  group = "User-Defined Processes"
+  order = 1
+
+  [endpoints.process_graphs]
+  url = "/process_graphs"
+  request_type = "GET"
+  group = "User-Defined Processes"
+  order = 2
+
+  [endpoints.process_graphs_pgid_get]
+  url = "/process_graphs/{process_graph_id}"
+  request_type = "GET"
+  group = "User-Defined Processes"
+  order = 2
+
+  [endpoints.process_graphs_pgid_delete]
+  url = "/process_graphs/{process_graph_id}"
+  request_type = "DELETE"
+  group = "User-Defined Processes"
+
+  
+  # Data Processing
+  #https://openeo.org/documentation/1.0/developers/api/reference.html#tag/Data-Processing
+  [endpoints.result]
+  url = "/result"
+  request_type = "POST"
+  body = "body/{job_sync_filename}"
+  group = "Data Processing"
+  order = 1
+
+  [endpoints.jobs_post]
+  url = "/jobs"
+  request_type = "POST"
+  body = "body/{job_filename}"
+  group = "Data Processing"
+  order = 1
+
+  [endpoints.jobs]
+  url = "/jobs"
+  request_type = "GET"
+  group = "Data Processing"
+  order = 2
+
+  [endpoints.jobs_job_id_patch]
+  url = "/jobs/{job_id}"  # -> {job_id} should be retrieved dynamically
+  request_type = "PATCH"
+  body = "body/{job_filename}"
+  group = "Data Processing"
+  order = 2
+
+  [endpoints.jobs_job_id]
+  url = "/jobs/{job_id}"
+  request_type = "GET"
+  group = "Data Processing"
+  order = 2
+
+  [endpoints.jobs_job_id_estimate]
+  url = "/jobs/{job_id}/estimate"
+  request_type = "GET"
+  group = "Data Processing"
+  order = 2
+
+  [endpoints.jobs_job_id_logs]
+  url = "/jobs/{job_id}/logs"
+  request_type = "GET"
+  group = "Data Processing"
+  order = 2
+
+  [endpoints.jobs_job_id_results]
+  url = "/jobs/{job_id}/results"
+  request_type = "GET"
+  group = "Data Processing"
+  retrycode = "JobNotFinished"
+  order = 4
+
+  [endpoints.jobs_job_id_results_post]
+  url = "/jobs/{job_id}/results"
+  request_type = "POST"
+  group = "Data Processing"
+  order = 3
+
+  [endpoints.jobs_job_id_results_delete]
+  url = "/jobs/{job_id}/results"
+  request_type = "DELETE"
+  group = "Data Processing"
+  order = 5
+
+  [endpoints.jobs_job_id_delete]
+  url = "/jobs/{job_id}"
+  request_type = "DELETE"
+  group = "Data Processing"
+  order = 6
+  
+  
+  # Secondary Services
+  # https://openeo.org/documentation/1.0/developers/api/reference.html#tag/Secondary-Services
+  [endpoints.services]
+  url = "/services"
+  request_type = "GET"
+  group = "Secondary Services"
+  order = 2
+
+  [endpoints.services_post]
+  url = "/services"
+  request_type = "POST"
+  group = "Secondary Services"
+  body = "body/{service_filename}"
+  order = 1
+
+  [endpoints.services_service_id_patch]
+  url = "/services/{service_id}"
+  request_type = "PATCH"
+  group = "Secondary Services"
+  body = "body/{service_filename_patch}"
+  order = 4
+
+  [endpoints.services_service_id_get]
+  url = "/services/{service_id}"
+  request_type = "GET"
+  group = "Secondary Services"
+  order = 3
+
+  [endpoints.services_service_id_delete]
+  url = "/services/{service_id}"
+  request_type = "DELETE"
+  group = "Secondary Services"
+  order = 6
+
+  [endpoints.services_service_id_logs]
+  url = "/services/{service_id}/logs"
+  request_type = "GET"
+  group = "Secondary Services"
+  order = 5
+  
+  # File Storage
+  # https://openeo.org/documentation/1.0/developers/api/reference.html#tag/File-Storage
+  [endpoints.files]
+  url = "/files"
+  request_type = "GET"
+  group = "File Storage"
+  order = 2
+
+  [endpoints.files_put]
+  url = "/files/{filepath}"
+  request_type = "PUT"
+  group = "File Storage"
+  body = "body/{file_filename}"
+  order = 1
+  
+  [endpoints.files_filepath]
+  url = "/files/{filepath}"
+  request_type = "GET"
+  group = "File Storage"
+  order = 2
+
+  [endpoints.files_delete]
+  url = "/files/{filepath}"
+  request_type = "DELETE"
+  group = "File Storage"
+  order = 3
