@@ -1,0 +1,216 @@
+{
+    "reduce1": {
+        "result": false,
+        "process_id": "reduce_dimension",
+        "arguments": {
+            "reducer": {
+                "callback": {
+                    "subtract1": {
+                        "arguments": {
+                            "data": [
+                                {
+                                    "from_node": "arrayelement1"
+                                },
+                                {
+                                    "from_node": "arrayelement2"
+                                }
+                            ]
+                        },
+                        "process_id": "subtract",
+                        "result": false
+                    },
+                    "arrayelement2": {
+                        "arguments": {
+                            "index": 2,
+                            "data": {
+                                "from_argument": "data"
+                            }
+                        },
+                        "process_id": "array_element",
+                        "result": false
+                    },
+                    "arrayelement1": {
+                        "arguments": {
+                            "index": 3,
+                            "data": {
+                                "from_argument": "data"
+                            }
+                        },
+                        "process_id": "array_element",
+                        "result": false
+                    },
+                    "arrayelement5": {
+                        "arguments": {
+                            "index": 0,
+                            "data": {
+                                "from_argument": "data"
+                            }
+                        },
+                        "process_id": "array_element",
+                        "result": false
+                    },
+                    "subtract2": {
+                        "arguments": {
+                            "data": [
+                                {
+                                    "from_node": "sum1"
+                                },
+                                {
+                                    "from_node": "product3"
+                                }
+                            ]
+                        },
+                        "process_id": "subtract",
+                        "result": false
+                    },
+                    "product3": {
+                        "arguments": {
+                            "data": [
+                                {
+                                    "from_node": "arrayelement5"
+                                },
+                                7.5
+                            ]
+                        },
+                        "process_id": "product",
+                        "result": false
+                    },
+                    "sum1": {
+                        "arguments": {
+                            "data": [
+                                {
+                                    "from_node": "arrayelement3"
+                                },
+                                {
+                                    "from_node": "product2"
+                                }
+                            ]
+                        },
+                        "process_id": "sum",
+                        "result": false
+                    },
+                    "product2": {
+                        "arguments": {
+                            "data": [
+                                {
+                                    "from_node": "arrayelement4"
+                                },
+                                6.0
+                            ]
+                        },
+                        "process_id": "product",
+                        "result": false
+                    },
+                    "divide1": {
+                        "arguments": {
+                            "data": [
+                                {
+                                    "from_node": "product1"
+                                },
+                                {
+                                    "from_node": "sum2"
+                                }
+                            ]
+                        },
+                        "process_id": "divide",
+                        "result": true
+                    },
+                    "arrayelement3": {
+                        "arguments": {
+                            "index": 3,
+                            "data": {
+                                "from_argument": "data"
+                            }
+                        },
+                        "process_id": "array_element",
+                        "result": false
+                    },
+                    "arrayelement4": {
+                        "arguments": {
+                            "index": 2,
+                            "data": {
+                                "from_argument": "data"
+                            }
+                        },
+                        "process_id": "array_element",
+                        "result": false
+                    },
+                    "product1": {
+                        "arguments": {
+                            "data": [
+                                {
+                                    "from_node": "subtract1"
+                                },
+                                2.5
+                            ]
+                        },
+                        "process_id": "product",
+                        "result": false
+                    },
+                    "sum2": {
+                        "arguments": {
+                            "data": [
+                                {
+                                    "from_node": "subtract2"
+                                },
+                                10000.0
+                            ]
+                        },
+                        "process_id": "sum",
+                        "result": false
+                    }
+                }
+            },
+            "dimension": "spectral_bands",
+            "data": {
+                "from_node": "filtertemporal1"
+            }
+        }
+    },
+    "filterbbox1": {
+        "result": false,
+        "process_id": "filter_bbox",
+        "arguments": {
+            "extent": {
+                "west": 11.279182434082033,
+                "east": 11.406898498535158,
+                "north": 46.522729291844286,
+                "south": 46.464349400461145,
+                "crs": "4326"
+            },
+            "data": {
+                "from_node": "loadcollection1"
+            }
+        }
+    },
+    "filtertemporal1": {
+        "result": false,
+        "process_id": "filter_temporal",
+        "arguments": {
+            "extent": [
+                "2018-05-01",
+                "2018-10-01"
+            ],
+            "data": {
+                "from_node": "filterbbox1"
+            }
+        }
+    },
+    "loadcollection1": {
+        "result": false,
+        "process_id": "load_collection",
+        "arguments": {
+            "id": "utm32n.openeo_bolzano.strds.openeo_bolzano_S2",
+            "spatial_extent": { 
+                "west": 11.279182434082033,
+                "east": 11.406898498535158,
+                "north": 46.522729291844286,
+                "south": 46.464349400461145,
+                "crs": "4326"
+                },
+            "temporal_extent": [
+                                "2018-05-01",
+                "2018-10-01"]
+        }
+    }
+}

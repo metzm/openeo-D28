@@ -1,0 +1,37 @@
+# Backend url and credentials
+url = "https://openeo.mundialis.de" # it's possible to use localhost to test locally: "http://localhost:PORT"
+backendversion = "1.0.0" # one of the versions specified on url/.well-known/openeo
+openapi = "https://raw.githubusercontent.com/Open-EO/openeo-api/1.0.0/openapi.yaml"
+username = "$USERNAME" # shell env var
+password = "$PASSWORD" # shell env var
+
+# Output filename
+output = "GRASS_output.json"
+
+[variables]
+  # These variables are used in openeo_v1.0_endpoints.toml
+  # Leave their names unchanged, modify their values
+  
+  # NOTE: place all files in the "body" folder
+  
+  # EO Data Discovery
+  collection_id = "utm32n.openeo_bolzano.openeo_bolzano_S2" # name of your collection
+
+  # User-defined Processes
+  process_graph_id = "my_evi" # name of your user defined process
+  pg_filename="GRASS_user_process.json" # file with PG for process_graph_id
+
+  # Data Processing / Batch Jobs
+  job_sync_filename="GRASS_job.json"
+  job_filename="GRASS_job.json"
+  job_id_precomputed="user-job::f33f3861-feee-4c32-92e8-2464627a7578"  # the id of a !pre-processed! job at the back-end
+  job_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a job
+
+  # Secondary Services
+  # service_filename="service_post.json"
+  # service_filename_patch="service_patch.json"
+  # service_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a service
+
+  # Files
+  # file_filename="file_to_upload.txt" # file in this repo located in the /body folder
+  # filepath = "my_uploaded_file.txt" # relative filepath where to store this at the back-end
