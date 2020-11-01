@@ -15,7 +15,7 @@ output = "GRASS_output.json"
   # NOTE: place all files in the "body" folder
   
   # EO Data Discovery
-  collection_id = "utm32n.openeo_bolzano.openeo_bolzano_S2" # name of your collection
+  collection_id = "utm32n.openeo_bolzano.strds.openeo_bolzano_S2" # name of your collection
 
   # User-defined Processes
   process_graph_id = "my_evi" # name of your user defined process
@@ -24,14 +24,13 @@ output = "GRASS_output.json"
   # Data Processing / Batch Jobs
   job_sync_filename="GRASS_job.json"
   job_filename="GRASS_job.json"
-  job_id_precomputed="user-job::f33f3861-feee-4c32-92e8-2464627a7578"  # the id of a !pre-processed! job at the back-end
+  job_id_precomputed="user-job-30a46996-216d-4610-9578-754946953d2a"  # the id of a !pre-processed! job at the back-end
   job_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a job
 
   # Secondary Services
-  # service_filename="service_post.json"
-  # service_filename_patch="service_patch.json"
-  # service_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a service
+  service_filename=""
+  service_id=""  # -> LEAVE EMPTY: this field is retrieved by the validator after creating a service
 
   # Files
-  # file_filename="file_to_upload.txt" # file in this repo located in the /body folder
-  # filepath = "my_uploaded_file.txt" # relative filepath where to store this at the back-end
+  file_filename="" # file in this repo located in the /body folder
+  filepath = "" # relative filepath where to store this at the back-end

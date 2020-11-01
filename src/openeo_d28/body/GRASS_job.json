@@ -1,10 +1,12 @@
 {
+  "process": {
+  "process_graph": {
     "reduce1": {
         "result": false,
         "process_id": "reduce_dimension",
         "arguments": {
             "reducer": {
-                "callback": {
+                "process_graph": {
                     "subtract1": {
                         "arguments": {
                             "data": [
@@ -213,4 +215,6 @@
                 "2018-10-01"]
         }
     }
+  }
+  }
 }

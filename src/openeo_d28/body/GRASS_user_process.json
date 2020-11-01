@@ -1,101 +1,218 @@
 {
   "process_graph": {
-    "evi": {
-      "process_id": "reduce_dimension",
-      "description": "Compute the EVI. Formula: 2.5 * (NIR - RED) / (1 + NIR + 6*RED + -7.5*BLUE)",
-      "arguments": {
-        "data": {"from_argument": "dc"},
-        "dimension": "spectral",
-        "reducer": {
-          "process_graph": {
-            "nir": {
-              "process_id": "array_element",
-              "arguments": {
-                "data": {
-                  "from_parameter": "data"
-                },
-                "index": 0
-              }
+    "reduce1": {
+        "result": false,
+        "process_id": "reduce_dimension",
+        "arguments": {
+            "reducer": {
+                "process_graph": {
+                    "subtract1": {
+                        "arguments": {
+                            "data": [
+                                {
+                                    "from_node": "arrayelement1"
+                                },
+                                {
+                                    "from_node": "arrayelement2"
+                                }
+                            ]
+                        },
+                        "process_id": "subtract",
+                        "result": false
+                    },
+                    "arrayelement2": {
+                        "arguments": {
+                            "index": 2,
+                            "data": {
+                                "from_argument": "data"
+                            }
+                        },
+                        "process_id": "array_element",
+                        "result": false
+                    },
+                    "arrayelement1": {
+                        "arguments": {
+                            "index": 3,
+                            "data": {
+                                "from_argument": "data"
+                            }
+                        },
+                        "process_id": "array_element",
+                        "result": false
+                    },
+                    "arrayelement5": {
+                        "arguments": {
+                            "index": 0,
+                            "data": {
+                                "from_argument": "data"
+                            }
+                        },
+                        "process_id": "array_element",
+                        "result": false
+                    },
+                    "subtract2": {
+                        "arguments": {
+                            "data": [
+                                {
+                                    "from_node": "sum1"
+                                },
+                                {
+                                    "from_node": "product3"
+                                }
+                            ]
+                        },
+                        "process_id": "subtract",
+                        "result": false
+                    },
+                    "product3": {
+                        "arguments": {
+                            "data": [
+                                {
+                                    "from_node": "arrayelement5"
+                                },
+                                7.5
+                            ]
+                        },
+                        "process_id": "product",
+                        "result": false
+                    },
+                    "sum1": {
+                        "arguments": {
+                            "data": [
+                                {
+                                    "from_node": "arrayelement3"
+                                },
+                                {
+                                    "from_node": "product2"
+                                }
+                            ]
+                        },
+                        "process_id": "sum",
+                        "result": false
+                    },
+                    "product2": {
+                        "arguments": {
+                            "data": [
+                                {
+                                    "from_node": "arrayelement4"
+                                },
+                                6.0
+                            ]
+                        },
+                        "process_id": "product",
+                        "result": false
+                    },
+                    "divide1": {
+                        "arguments": {
+                            "data": [
+                                {
+                                    "from_node": "product1"
+                                },
+                                {
+                                    "from_node": "sum2"
+                                }
+                            ]
+                        },
+                        "process_id": "divide",
+                        "result": true
+                    },
+                    "arrayelement3": {
+                        "arguments": {
+                            "index": 3,
+                            "data": {
+                                "from_argument": "data"
+                            }
+                        },
+                        "process_id": "array_element",
+                        "result": false
+                    },
+                    "arrayelement4": {
+                        "arguments": {
+                            "index": 2,
+                            "data": {
+                                "from_argument": "data"
+                            }
+                        },
+                        "process_id": "array_element",
+                        "result": false
+                    },
+                    "product1": {
+                        "arguments": {
+                            "data": [
+                                {
+                                    "from_node": "subtract1"
+                                },
+                                2.5
+                            ]
+                        },
+                        "process_id": "product",
+                        "result": false
+                    },
+                    "sum2": {
+                        "arguments": {
+                            "data": [
+                                {
+                                    "from_node": "subtract2"
+                                },
+                                10000.0
+                            ]
+                        },
+                        "process_id": "sum",
+                        "result": false
+                    }
+                }
             },
-            "red": {
-              "process_id": "array_element",
-              "arguments": {
-                "data": {
-                  "from_parameter": "data"
-                },
-                "index": 1
-              }
-            },
-            "blue": {
-              "process_id": "array_element",
-              "arguments": {
-                "data": {
-                  "from_parameter": "data"
-                },
-                "index": 2
-              }
-            },
-            "sub": {
-              "process_id": "subtract",
-              "arguments": {
-                "data": [{
-                  "from_node": "nir"
-                }, {
-                  "from_node": "red"
-                }]
-              }
-            },
-            "p1": {
-              "process_id": "product",
-              "arguments": {
-                "data": [6, {
-                  "from_node": "red"
-                }]
-              }
-            },
-            "p2": {
-              "process_id": "product",
-              "arguments": {
-                "data": [-7.5, {
-                  "from_node": "blue"
-                }]
-              }
-            },
-            "sum": {
-              "process_id": "sum",
-              "arguments": {
-                "data": [10000, {
-                  "from_node": "nir"
-                }, {
-                  "from_node": "p1"
-                }, {
-                  "from_node": "p2"
-                }]
-              }
-            },
-            "div": {
-              "process_id": "divide",
-              "arguments": {
-                "data": [{
-                  "from_node": "sub"
-                }, {
-                  "from_node": "sum"
-                }]
-              }
-            },
-            "p3": {
-              "process_id": "product",
-              "arguments": {
-                "data": [2.5, {
-                  "from_node": "div"
-                }]
-              },
-              "result": true
+            "dimension": "spectral_bands",
+            "data": {
+                "from_node": "filtertemporal1"
             }
-          }
         }
-      }
+    },
+    "filterbbox1": {
+        "result": false,
+        "process_id": "filter_bbox",
+        "arguments": {
+            "extent": {
+                "west": 11.279182434082033,
+                "east": 11.406898498535158,
+                "north": 46.522729291844286,
+                "south": 46.464349400461145,
+                "crs": "4326"
+            },
+            "data": {
+                "from_node": "loadcollection1"
+            }
+        }
+    },
+    "filtertemporal1": {
+        "result": false,
+        "process_id": "filter_temporal",
+        "arguments": {
+            "extent": [
+                "2018-05-01",
+                "2018-10-01"
+            ],
+            "data": {
+                "from_node": "filterbbox1"
+            }
+        }
+    },
+    "loadcollection1": {
+        "result": false,
+        "process_id": "load_collection",
+        "arguments": {
+            "id": "utm32n.openeo_bolzano.strds.openeo_bolzano_S2",
+            "spatial_extent": { 
+                "west": 11.279182434082033,
+                "east": 11.406898498535158,
+                "north": 46.522729291844286,
+                "south": 46.464349400461145,
+                "crs": "4326"
+                },
+            "temporal_extent": [
+                                "2018-05-01",
+                "2018-10-01"]
+        }
     }
   }
 }
-
